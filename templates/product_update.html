@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+{% block content %}
+
+
+<div class="container" style="background-color:#ffffff;width:600px;height:700px;margin-top:60px; ">
+
+
+
+  <h1 style="font-family:'Montserrat';text-align:center;">Update Post</h1>
+  {% if registered %}
+  <h1>Created</h1>
+  {% else %}
+  <form method="POST">
+
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <input type="submit" class="btn btn-primary" value="Update" style="margin-left:250px;">
+
+  </form>
+  {% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+{% block content %}
+
+
+<div  style="margin-top: 100px;">
+
+
+  {% for da in data %}
+<div class="container">
+  <div class="card text-center text-data" >
+<div class="card-header">
+  <i> Available Product </i>
+</div>
+<div class="card-body">
+  <h5 class="card-title">{{ da.title }}</h5>
+  <p class="card-text">{{ da.des }}</p>
+  {% if user.is_authenticated %}
+
+  <a href="{% url 'product:product_update' pk=da.pk %}" class="btn btn-primary">Update</a>
+
+  {% endif %}
+</div>
+<div class="card-footer text-muted">
+  {% if da.update == None %}
+  <i>Created on :- </i> {{ da.date_created }} {{da.create}}
+  {% else %}
+  <i>Updated on :- </i> {{ da.date_updated }} {{da.update}}
+  {% endif %}
+</div>
+</div>
+</div>
+  {% endfor %}
+
+
+
+
+
+
+{% endblock %}

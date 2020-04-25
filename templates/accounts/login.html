@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+
+
+
+{% block content %}
+
+
+<div class="container" style="background-color:#ffffff;width:600px;height:500px;margin-top:60px; ">
+
+
+
+  <h1 style="font-family:'Montserrat';text-align:center;">Log In</h1>
+
+  <form method="POST">
+
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <input type="submit" class="btn btn-primary" value="LogIn" style="margin-left:250px;">
+
+  </form>
+
+</div>
+
+
+
+
+{% endblock %}
